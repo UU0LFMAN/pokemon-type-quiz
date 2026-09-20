@@ -3,607 +3,521 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>คุณมีจิตวิญญาณของธาตุอะไร?</title>
+<title>Spirit Type Quiz</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, "Noto Sans Thai", sans-serif;
-    color: #ffffff;
-    background:
-        radial-gradient(circle at top, #28365c 0%, #11182b 38%, #070a12 100%);
-}
-
-.container {
-    width: min(760px, calc(100% - 30px));
-    margin: auto;
-    padding: 35px 0 50px;
-}
-
-.card {
-    background: rgba(15, 20, 34, 0.95);
-    border: 1px solid #303951;
-    border-radius: 24px;
-    padding: 30px;
-    box-shadow: 0 20px 60px rgba(0,0,0,.35);
-}
-
-.hidden {
-    display: none;
-}
-
-.center {
-    text-align: center;
-}
-
-.kicker {
-    color: #7dd3fc;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 13px;
-}
-
-h1 {
-    font-size: clamp(32px, 7vw, 52px);
-    line-height: 1.2;
-    margin: 12px 0 18px;
-}
-
-h2 {
-    font-size: clamp(22px, 5vw, 30px);
-    line-height: 1.4;
-}
-
-p {
-    color: #aeb7ca;
-    line-height: 1.8;
-}
-
-.hero {
-    padding: 45px 25px;
-}
-
-button {
-    font-family: inherit;
-}
-
-.primary,
-.secondary {
-    min-height: 50px;
-    padding: 12px 24px;
-    border-radius: 14px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.primary {
-    color: #071018;
-    border: none;
-    background: linear-gradient(135deg, #7dd3fc, #c4b5fd);
-}
-
-.primary:hover {
-    filter: brightness(1.08);
-    transform: translateY(-1px);
-}
-
-.secondary {
-    color: white;
-    background: #171d2d;
-    border: 1px solid #343d55;
-}
-
-.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.counter {
-    font-weight: bold;
-}
-
-.muted {
-    color: #8993aa;
-}
-
-.progress {
-    height: 8px;
-    background: #252c3e;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #7dd3fc, #c4b5fd);
-    transition: width .25s ease;
-}
-
-.options {
-    display: grid;
-    gap: 12px;
-}
-
-.option {
-    width: 100%;
-    min-height: 58px;
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    text-align: left;
-    padding: 12px 15px;
-    color: white;
-    background: #151b2b;
-    border: 1px solid #303950;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: .15s ease;
-}
-
-.option:hover {
-    background: #1c2437;
-    border-color: #68748f;
-    transform: translateY(-1px);
-}
-
-.letter {
-    flex: 0 0 34px;
-    width: 34px;
-    height: 34px;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    background: #273148;
-    font-weight: bold;
-}
-
-.note {
-    margin-top: 20px;
-    text-align: center;
-    color: #737e97;
-    font-size: 13px;
-}
-
-.result-icon {
-    width: 110px;
-    height: 110px;
-    margin: 15px auto 20px;
-    display: grid;
-    place-items: center;
-    border-radius: 32px;
-    font-size: 55px;
-    background: linear-gradient(145deg, #26314a, #111725);
-    border: 1px solid #3d4963;
-}
-
-.result-type {
-    font-size: clamp(38px, 9vw, 64px);
-    font-weight: 900;
-    line-height: 1.15;
-    margin: 5px 0;
-}
-
-.subtitle {
-    color: #7dd3fc;
-    font-size: 19px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.story {
-    text-align: left;
-    background: #151b2b;
-    border: 1px solid #303950;
-    border-radius: 18px;
-    padding: 20px;
-    line-height: 1.9;
-    color: #dce2ef;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 18px;
-}
-
-.stat {
-    background: #111726;
-    border: 1px solid #303950;
-    border-radius: 16px;
-    padding: 15px;
-}
-
-.stat-title {
-    color: #8993aa;
-    font-size: 14px;
-}
-
-.stat-value {
-    display: block;
-    margin-top: 4px;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.actions {
-    margin-top: 24px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-@media (max-width: 520px) {
-    .container {
-        width: calc(100% - 18px);
-        padding-top: 18px;
+    * {
+        box-sizing: border-box;
     }
 
-    .card {
-        padding: 20px;
-        border-radius: 20px;
+    html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                     "Segoe UI", "Noto Sans Thai", sans-serif;
+        background:
+            radial-gradient(circle at top, #263653 0%, #111827 42%, #070b12 100%);
+        color: #f8fafc;
     }
 
-    .hero {
-        padding: 35px 12px;
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 18px;
     }
 
-    .stats {
-        grid-template-columns: 1fr;
+    button {
+        font-family: inherit;
     }
-}
+
+    .app {
+        width: 100%;
+        max-width: 760px;
+        min-height: 650px;
+        position: relative;
+    }
+
+    .screen {
+        display: none;
+        animation: fadeIn 0.35s ease;
+    }
+
+    .screen.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+       START
+    ========================= */
+
+    .start-card {
+        min-height: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 45px 25px;
+        background: rgba(15, 23, 42, 0.88);
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 28px;
+        box-shadow:
+            0 25px 80px rgba(0,0,0,0.45),
+            inset 0 1px 0 rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+    }
+
+    .start-icon {
+        font-size: 78px;
+        margin-bottom: 15px;
+        filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+    }
+
+    .start-title {
+        font-size: clamp(30px, 7vw, 52px);
+        font-weight: 900;
+        line-height: 1.15;
+        margin: 0;
+    }
+
+    .start-title span {
+        display: block;
+        color: #93c5fd;
+    }
+
+    .start-subtitle {
+        color: #cbd5e1;
+        max-width: 560px;
+        line-height: 1.8;
+        margin: 22px 0 10px;
+        font-size: 16px;
+    }
+
+    .start-info {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 18px 0 28px;
+    }
+
+    .info-pill {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 8px 14px;
+        border-radius: 999px;
+        color: #dbeafe;
+        font-size: 14px;
+    }
+
+    .primary-btn {
+        border: none;
+        border-radius: 16px;
+        padding: 15px 30px;
+        font-size: 17px;
+        font-weight: 800;
+        color: white;
+        cursor: pointer;
+        background: linear-gradient(135deg, #3b82f6, #6366f1);
+        box-shadow: 0 10px 25px rgba(59,130,246,0.28);
+        transition: 0.2s;
+    }
+
+    .primary-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(59,130,246,0.38);
+    }
+
+    .primary-btn:active {
+        transform: translateY(0);
+    }
+
+    /* =========================
+       QUIZ
+    ========================= */
+
+    .quiz-card {
+        background: rgba(15, 23, 42, 0.94);
+        border: 1px solid rgba(255,255,255,0.09);
+        border-radius: 25px;
+        padding: 25px;
+        box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+    }
+
+    .quiz-top {
+        margin-bottom: 25px;
+    }
+
+    .progress-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        color: #94a3b8;
+        font-size: 14px;
+    }
+
+    .progress-container {
+        height: 9px;
+        background: rgba(255,255,255,0.08);
+        border-radius: 999px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #60a5fa, #818cf8);
+        transition: width 0.35s ease;
+    }
+
+    .question-number {
+        color: #93c5fd;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 9px;
+    }
+
+    .question {
+        font-size: clamp(22px, 5vw, 31px);
+        line-height: 1.4;
+        font-weight: 850;
+        margin: 0 0 25px;
+    }
+
+    .answers {
+        display: grid;
+        gap: 12px;
+    }
+
+    .answer-btn {
+        width: 100%;
+        text-align: left;
+        border: 1px solid rgba(255,255,255,0.09);
+        background: rgba(255,255,255,0.045);
+        color: #e2e8f0;
+        border-radius: 17px;
+        padding: 17px 18px;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+        transition: 0.18s ease;
+        display: flex;
+        align-items: flex-start;
+        gap: 13px;
+    }
+
+    .answer-btn:hover {
+        background: rgba(96,165,250,0.13);
+        border-color: rgba(96,165,250,0.4);
+        transform: translateX(3px);
+    }
+
+    .answer-letter {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+        color: #bfdbfe;
+        font-weight: 800;
+        font-size: 14px;
+    }
+
+    /* =========================
+       RESULT
+    ========================= */
+
+    .result-card {
+        background: rgba(15, 23, 42, 0.94);
+        border: 1px solid rgba(255,255,255,0.10);
+        border-radius: 28px;
+        padding: 35px 25px;
+        box-shadow: 0 25px 80px rgba(0,0,0,0.45);
+        text-align: center;
+    }
+
+    .result-small {
+        color: #94a3b8;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .result-icon {
+        font-size: 88px;
+        line-height: 1;
+        margin: 5px 0 15px;
+        filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
+    }
+
+    .result-type {
+        font-size: clamp(35px, 8vw, 55px);
+        font-weight: 950;
+        margin: 0;
+    }
+
+    .result-subtitle {
+        color: #93c5fd;
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 7px;
+    }
+
+    .story-box {
+        margin: 25px auto;
+        max-width: 610px;
+        padding: 22px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.07);
+        color: #cbd5e1;
+        line-height: 1.85;
+        text-align: left;
+    }
+
+    .result-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        max-width: 500px;
+        margin: 0 auto 25px;
+    }
+
+    .stat-box {
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.07);
+        padding: 14px;
+        border-radius: 15px;
+    }
+
+    .stat-label {
+        display: block;
+        color: #94a3b8;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .stat-value {
+        font-size: 17px;
+        font-weight: 800;
+        color: #f8fafc;
+    }
+
+    .result-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .secondary-btn {
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.06);
+        color: #e2e8f0;
+        border-radius: 14px;
+        padding: 13px 20px;
+        font-size: 15px;
+        font-weight: 750;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .secondary-btn:hover {
+        background: rgba(255,255,255,0.11);
+    }
+
+    .footer-note {
+        margin-top: 25px;
+        color: #64748b;
+        font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 10px;
+        }
+
+        .start-card {
+            min-height: calc(100vh - 20px);
+            border-radius: 20px;
+            padding: 30px 20px;
+        }
+
+        .quiz-card,
+        .result-card {
+            padding: 22px 16px;
+            border-radius: 20px;
+        }
+
+        .answer-btn {
+            padding: 15px;
+            font-size: 15px;
+        }
+
+        .result-stats {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-<!-- START -->
-<section id="startScreen" class="card hero center">
+    <!-- =========================
+         START SCREEN
+    ========================== -->
 
-    <div class="kicker">
-        POKÉMON MYSTERY DUNGEON STYLE
-    </div>
+    <section id="startScreen" class="screen active">
+        <div class="start-card">
 
-    <h1>
-        คุณมีจิตวิญญาณ<br>
-        ของธาตุอะไร?
-    </h1>
+            <div class="start-icon">🔮</div>
 
-    <p>
-        ตอบคำถามทั้ง 20 ข้อจากความรู้สึกแรกของคุณ
-        แล้วค้นหาว่าธาตุใดสะท้อนตัวตนของคุณมากที่สุด
-    </p>
+            <h1 class="start-title">
+                คุณมีจิตวิญญาณ
+                <span>ของธาตุอะไร?</span>
+            </h1>
 
-    <button id="startButton" class="primary">
-        เริ่มการผจญภัย
-    </button>
+            <p class="start-subtitle">
+                คุณตื่นขึ้นมาในโลกที่ไม่คุ้นเคย...
+                ไม่มีใครบอกว่าคุณเป็นใคร
+                แต่การตัดสินใจของคุณจะเป็นคนตอบคำถามนั้นเอง
+                <br><br>
+                ออกผจญภัยไปกับสถานการณ์ต่าง ๆ
+                แล้วค้นพบว่า <b>ธาตุใดสะท้อนตัวตนของคุณมากที่สุด</b>
+            </p>
 
-    <div class="note">
-        20 คำถาม • 18 ธาตุ • ไม่มีคำตอบถูกหรือผิด
-    </div>
+            <div class="start-info">
+                <div class="info-pill">⚔️ 20 เหตุการณ์</div>
+                <div class="info-pill">💠 18 ธาตุ</div>
+                <div class="info-pill">🎲 5 ตัวเลือกต่อข้อ</div>
+                <div class="info-pill">🗝️ ผลลัพธ์ลับ</div>
+            </div>
 
-</section>
+            <button class="primary-btn" onclick="startQuiz()">
+                เริ่มการผจญภัย
+            </button>
+
+        </div>
+    </section>
 
 
-<!-- QUIZ -->
-<section id="quizScreen" class="card hidden">
+    <!-- =========================
+         QUIZ SCREEN
+    ========================== -->
 
-    <div class="top">
-        <div id="counter" class="counter">
-            คำถาม 1 / 20
+    <section id="quizScreen" class="screen">
+
+        <div class="quiz-card">
+
+            <div class="quiz-top">
+
+                <div class="progress-row">
+                    <span id="progressText">1 / 20</span>
+                    <span id="progressPercent">5%</span>
+                </div>
+
+                <div class="progress-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+
+            </div>
+
+            <div id="questionNumber" class="question-number">
+                เหตุการณ์ที่ 1
+            </div>
+
+            <h2 id="questionText" class="question"></h2>
+
+            <div id="answers" class="answers"></div>
+
         </div>
 
-        <div class="muted">
-            เลือกคำตอบที่ตรงกับคุณที่สุด
-        </div>
-    </div>
-
-    <div class="progress">
-        <div id="progressBar" class="progress-bar"></div>
-    </div>
-
-    <h2 id="questionText"></h2>
-
-    <div id="options" class="options"></div>
-
-    <div class="note">
-        เลือกตามสัญชาตญาณของคุณ
-    </div>
-
-</section>
+    </section>
 
 
-<!-- RESULT -->
-<section id="resultScreen" class="card center hidden">
+    <!-- =========================
+         RESULT SCREEN
+    ========================== -->
 
-    <div class="kicker">
-        YOUR ADVENTURE HAS REVEALED...
-    </div>
+    <section id="resultScreen" class="screen">
 
-    <div id="resultIcon" class="result-icon">
-        ✨
-    </div>
+        <div class="result-card">
 
-    <div id="resultType" class="result-type">
-        ธาตุไฟ
-    </div>
+            <div class="result-small">
+                การเดินทางของคุณได้เปิดเผยตัวตนที่แท้จริง
+            </div>
 
-    <div id="resultSubtitle" class="subtitle">
-        จิตวิญญาณแห่งเปลวเพลิง
-    </div>
+            <div id="resultIcon" class="result-icon">❓</div>
 
-    <div id="resultStory" class="story"></div>
+            <h1 id="resultType" class="result-type">
+                ธาตุ???
+            </h1>
 
-    <div class="stats">
+            <div id="resultSubtitle" class="result-subtitle">
+                จิตวิญญาณของคุณ
+            </div>
 
-        <div class="stat">
-            <span class="stat-title">
-                ความเข้ากันได้
-            </span>
+            <div id="resultStory" class="story-box"></div>
 
-            <span id="affinity" class="stat-value">
-                87%
-            </span>
-        </div>
+            <div class="result-stats">
 
-        <div class="stat">
-            <span class="stat-title">
-                ระดับความหายาก
-            </span>
+                <div class="stat-box">
+                    <span class="stat-label">ความสอดคล้อง</span>
+                    <span id="affinity" class="stat-value">--%</span>
+                </div>
 
-            <span id="rarity" class="stat-value">
-                ปกติ
-            </span>
+                <div class="stat-box">
+                    <span class="stat-label">ระดับความหายาก</span>
+                    <span id="rarity" class="stat-value">--</span>
+                </div>
+
+            </div>
+
+            <div class="result-actions">
+
+                <button class="primary-btn" onclick="restartQuiz()">
+                    🔄 เล่นอีกครั้ง
+                </button>
+
+                <button class="secondary-btn" onclick="shareResult()">
+                    📤 แชร์ผลลัพธ์
+                </button>
+
+            </div>
+
+            <div class="footer-note">
+                ผลลัพธ์คำนวณจากคำตอบทั้งหมดของคุณ
+            </div>
+
         </div>
 
-    </div>
-
-    <div class="actions">
-
-        <button id="retryButton" class="primary">
-            เริ่มการผจญภัยอีกครั้ง
-        </button>
-
-        <button id="shareButton" class="secondary">
-            แชร์ผลลัพธ์
-        </button>
-
-    </div>
-
-    <div id="shareStatus" class="note"></div>
-
-</section>
+    </section>
 
 </div>
 
 
 <script>
-
-"use strict";
-
-
-/* =========================================================
-   QUESTIONS
-========================================================= */
-
-const questions = [
-
-{
-    q: "คุณกำลังเดินทางและพบทางแยกที่ไม่เคยเห็นมาก่อน คุณจะเลือกอย่างไร?",
-    a: [
-        ["เลือกทางที่ดูน่าตื่นเต้นที่สุด", "Fire", "Flying"],
-        ["ลองสำรวจอย่างใจเย็นและคิดถึงสิ่งที่อาจอยู่ข้างหน้า", "Psychic", "Ground"],
-        ["เลือกเส้นทางที่ปลอดภัยและมีโครงสร้างชัดเจน", "Steel", "Normal"],
-        ["เดินตามความรู้สึกและดูว่าหัวใจพาไปไหน", "Fairy", "Water"]
-    ]
-},
-
-{
-    q: "ถ้าเพื่อนร่วมทีมทำพลาดจนแผนเสีย คุณมักจะทำอย่างไร?",
-    a: [
-        ["ช่วยแก้สถานการณ์ก่อน แล้วค่อยคุยกันทีหลัง", "Water", "Grass"],
-        ["ตั้งสติและจัดการปัญหาอย่างเป็นระบบ", "Fighting", "Steel"],
-        ["คิดหาทางแก้ที่คนอื่นคาดไม่ถึง", "Dark", "Poison"],
-        ["ปลอบเพื่อนและทำให้บรรยากาศกลับมาดี", "Fairy", "Psychic"]
-    ]
-},
-
-{
-    q: "เมื่อมีเป้าหมายที่ยากมาก คุณมักจะ...",
-    a: [
-        ["ค่อย ๆ สร้างพื้นฐานแล้วเดินหน้าไปทีละขั้น", "Ground", "Grass"],
-        ["ลุยเต็มที่ แม้จะต้องเจออุปสรรค", "Fighting", "Fire"],
-        ["ทดลองหลายวิธีจนเจอวิธีที่ได้ผล", "Electric", "Bug"],
-        ["ยอมเปลี่ยนเส้นทางถ้ารู้สึกว่าวิธีเดิมไม่เหมาะ", "Water", "Ghost"]
-    ]
-},
-
-{
-    q: "ถ้ามีคนคัดค้านความคิดเห็นของคุณ คุณจะ...",
-    a: [
-        ["ยืนยันจุดยืนของตัวเองอย่างตรงไปตรงมา", "Fire", "Fighting"],
-        ["ฟังเหตุผลของอีกฝ่ายก่อน แล้วค่อยตอบ", "Psychic", "Water"],
-        ["ขอหลักฐานหรือข้อมูลที่ชัดเจน", "Steel", "Normal"],
-        ["พยายามหาจุดร่วมที่ทั้งสองฝ่ายยอมรับได้", "Fairy", "Flying"]
-    ]
-},
-
-{
-    q: "ชัยชนะแบบไหนทำให้คุณรู้สึกสะใจที่สุด?",
-    a: [
-        ["ชนะสิ่งที่ครั้งหนึ่งคิดว่าเกินความสามารถ", "Dragon", "Fighting"],
-        ["ชนะด้วยไหวพริบหรือการอ่านสถานการณ์", "Psychic", "Electric"],
-        ["ชนะเพราะเตรียมตัวมาอย่างดี", "Steel", "Fairy"],
-        ["พลิกสถานการณ์จากที่เสียเปรียบให้กลายเป็นฝ่ายชนะ", "Dark", "Flying"]
-    ]
-},
-
-{
-    q: "ถ้ามีวันว่างทั้งวันโดยไม่มีใครมาคาดหวังอะไรจากคุณ คุณจะ...",
-    a: [
-        ["ออกไปเที่ยวหรือเปลี่ยนบรรยากาศ", "Flying", "Water"],
-        ["ทำอะไรที่กระตุ้นพลังและความตื่นเต้น", "Fire", "Electric"],
-        ["อยู่บ้าน ทำงานอดิเรก หรือจัดการสิ่งที่ค้างไว้", "Normal", "Grass"],
-        ["อยู่เงียบ ๆ ดูหนัง เล่นเกม หรืออยู่กับโลกของตัวเอง", "Ghost", "Poison"]
-    ]
-},
-
-{
-    q: "ถ้าแผนที่วางไว้ถูกเปลี่ยนกะทันหัน คุณมักจะ...",
-    a: [
-        ["ปรับตัวตามสถานการณ์แล้วไปต่อ", "Water", "Flying"],
-        ["คิดทางเลือกใหม่อย่างรวดเร็ว", "Electric", "Psychic"],
-        ["พยายามทำให้ทุกอย่างกลับมาอยู่ในระบบ", "Steel", "Ground"],
-        ["ถือโอกาสนั้นลองอะไรที่ไม่เคยทำ", "Fire", "Ghost"]
-    ]
-},
-
-{
-    q: "คุณชื่นชมคุณสมบัติใดในคนอื่นมากที่สุด?",
-    a: [
-        ["ความกล้าที่กล้ายืนหยัดเพื่อสิ่งที่เชื่อ", "Fighting", "Fire"],
-        ["ความรับผิดชอบและไว้ใจได้", "Steel", "Ground"],
-        ["ความอ่อนโยนและเข้าใจความรู้สึกคนอื่น", "Fairy", "Grass"],
-        ["ความฉลาดและรู้จักวางแผน", "Dark", "Psychic"]
-    ]
-},
-
-{
-    q: "คุณพบวัตถุลึกลับที่ดูเหมือนมีพลังบางอย่าง คุณจะ...",
-    a: [
-        ["พยายามวิเคราะห์ว่ามันทำงานอย่างไร", "Psychic", "Electric"],
-        ["ลองสัมผัสและดูว่าความรู้สึกบอกอะไร", "Fairy", "Water"],
-        ["ตรวจสอบอย่างระมัดระวังและหาข้อมูลก่อน", "Steel", "Ground"],
-        ["ลองเสี่ยงใช้มัน เพราะความอยากรู้อยากเห็น", "Ghost", "Fire"]
-    ]
-},
-
-{
-    q: "สภาพแวดล้อมแบบไหนทำให้คุณอยากออกผจญภัยที่สุด?",
-    a: [
-        ["ป่าที่เต็มไปด้วยสิ่งมีชีวิตและเส้นทางลับ", "Grass", "Bug"],
-        ["ภูเขาสูงหรือดินแดนหนาวเย็น", "Rock", "Ice"],
-        ["สถานที่เก่าแก่ ลึกลับ และมีเรื่องราวซ่อนอยู่", "Ghost", "Psychic"],
-        ["ท้องฟ้ากว้างใหญ่และสถานที่ที่ยังไม่มีใครสำรวจ", "Flying", "Dragon"]
-    ]
-},
-
-{
-    q: "ถ้ามีคนมองว่าคุณทำบางอย่างไม่ได้ คุณมักจะ...",
-    a: [
-        ["เก็บไว้ในใจ แล้วพิสูจน์ด้วยการลงมือทำ", "Steel", "Dark"],
-        ["ท้าทายกลับทันที", "Fighting", "Fire"],
-        ["ไม่สนใจมากนัก ขอแค่ตัวเองรู้ว่าทำได้", "Psychic", "Normal"],
-        ["ใช้ความคาดไม่ถึงทำให้เขาประหลาดใจ", "Ghost", "Fairy"]
-    ]
-},
-
-{
-    q: "ถ้าคุณเป็นหัวหน้าทีม สิ่งแรกที่คุณให้ความสำคัญคือ...",
-    a: [
-        ["ให้ทุกคนปลอดภัยและมีแผนที่ชัดเจน", "Steel", "Water"],
-        ["สร้างแรงผลักดันให้ทุกคนอยากเดินหน้า", "Fire", "Flying"],
-        ["ดูแลความรู้สึกและความสัมพันธ์ของสมาชิก", "Fairy", "Grass"],
-        ["วิเคราะห์จุดแข็งของแต่ละคนแล้ววางตำแหน่งให้เหมาะ", "Psychic", "Ground"]
-    ]
-},
-
-{
-    q: "เมื่อคุณล้มเหลวกับสิ่งที่ตั้งใจไว้ คุณมักจะ...",
-    a: [
-        ["กลับไปวิเคราะห์ว่าพลาดตรงไหน", "Psychic", "Bug"],
-        ["ลองใหม่ทันทีด้วยวิธีที่ต่างออกไป", "Fighting", "Rock"],
-        ["พักก่อน แล้วค่อยกลับมาเมื่อพร้อม", "Water", "Electric"],
-        ["มองว่ามันเป็นส่วนหนึ่งของการเติบโต", "Dragon", "Flying"]
-    ]
-},
-
-{
-    q: "ถ้าคุณสามารถเชี่ยวชาญทักษะหนึ่งได้ในทันที คุณจะเลือก...",
-    a: [
-        ["ทักษะที่ช่วยเข้าใจผู้คนและโลกได้ลึกขึ้น", "Fairy", "Psychic"],
-        ["ทักษะที่ทำให้คุณแข็งแกร่งและเอาตัวรอดได้", "Steel", "Rock"],
-        ["ทักษะที่ทำให้คุณเดินทางได้อย่างอิสระ", "Flying", "Water"],
-        ["ทักษะที่ทำให้คุณก้าวข้ามขีดจำกัดของตัวเอง", "Dragon", "Electric"]
-    ]
-},
-
-{
-    q: "ถ้าเพื่อนสนิทบอกความลับที่ไม่อยากให้ใครรู้ คุณจะ...",
-    a: [
-        ["เก็บเรื่องนั้นไว้ แม้ไม่มีใครรู้ว่าคุณรู้", "Steel", "Dark"],
-        ["รับฟังและช่วยให้เขารู้สึกปลอดภัย", "Fairy", "Water"],
-        ["พยายามเข้าใจเหตุผลที่อยู่เบื้องหลังเรื่องนั้น", "Psychic", "Normal"],
-        ["ปกป้องเพื่อน แม้ต้องเข้าไปอยู่ในสถานการณ์ยุ่งยาก", "Fire", "Ghost"]
-    ]
-},
-
-{
-    q: "อะไรเป็นสิ่งที่กระตุ้นความอยากรู้อยากเห็นของคุณมากที่สุด?",
-    a: [
-        ["เรื่องลึกลับที่ยังไม่มีคำอธิบาย", "Psychic", "Ghost"],
-        ["สิ่งสวยงาม แปลกประหลาด หรือเหนือธรรมชาติ", "Fairy", "Ice"],
-        ["เทคโนโลยี เครื่องจักร หรือระบบที่ซับซ้อน", "Steel", "Electric"],
-        ["ตำนาน เรื่องเล่า และสิ่งที่อยู่เหนือขอบเขตเดิม", "Dragon", "Flying"]
-    ]
-},
-
-{
-    q: "เมื่ออยู่ภายใต้ความกดดัน คุณมักจะ...",
-    a: [
-        ["เก็บอารมณ์และพยายามควบคุมสถานการณ์", "Steel", "Ice"],
-        ["ผลักตัวเองให้สู้จนกว่าจะผ่านไปได้", "Fire", "Fighting"],
-        ["ปรับตัวตามแรงกดดันและหาทางหลบสิ่งที่ไม่จำเป็น", "Water", "Dark"],
-        ["ถอยออกมาวิเคราะห์ภาพรวมก่อนลงมือ", "Psychic", "Ground"]
-    ]
-},
-
-{
-    q: "ถ้าเลือกการผจญภัยในอุดมคติได้ คุณอยากให้เป็นแบบไหน?",
-    a: [
-        ["การเดินทางครั้งยิ่งใหญ่ที่ทำให้คุณเติบโต", "Dragon", "Fighting"],
-        ["การเดินทางที่ได้พบเพื่อนและสร้างความทรงจำ", "Fairy", "Grass"],
-        ["การสำรวจสถานที่ลึกลับที่ไม่มีใครรู้จัก", "Ghost", "Poison"],
-        ["การทดสอบความอดทนในดินแดนที่โหดร้าย", "Rock", "Steel"]
-    ]
-},
-
-{
-    q: "คุณกำลังจะถึงจุดหมาย มีทางปลอดภัยกับทางลัดที่ไม่รู้ว่ามีอะไรอยู่ข้างหน้า คุณจะ...",
-    a: [
-        ["เลือกทางลัด เพราะอยากรู้ว่าจะเกิดอะไรขึ้น", "Electric", "Flying"],
-        ["เลือกทางปลอดภัย เพราะไม่จำเป็นต้องเสี่ยง", "Ground", "Normal"],
-        ["ตรวจสอบข้อมูลก่อน แล้วเลือกทางที่มีเหตุผลที่สุด", "Psychic", "Steel"],
-        ["เชื่อสัญชาตญาณและลองเสี่ยงดู", "Fairy", "Water"]
-    ]
-},
-
-{
-    q: "หลังผ่านการเดินทางที่ยากลำบาก สิ่งใดทำให้คุณรู้สึกว่า 'คุ้มแล้ว' มากที่สุด?",
-    a: [
-        ["รู้ว่าตัวเองแข็งแกร่งขึ้นกว่าตอนเริ่มต้น", "Dragon", "Fire"],
-        ["ได้สร้างสายสัมพันธ์ที่มีความหมาย", "Fairy", "Grass"],
-        ["รู้ว่าตัวเองสามารถผ่านสิ่งที่คิดว่าเป็นไปไม่ได้", "Rock", "Fighting"],
-        ["ได้เข้าใจตัวเองและโลกมากขึ้น", "Psychic", "Ghost"]
-    ]
-}
-
-];
-
 
 /* =========================================================
    TYPE DATA
@@ -611,150 +525,203 @@ const questions = [
 
 const types = {
 
-Normal: {
-    name:"ปกติ",
-    icon:"◉",
-    subtitle:"จิตวิญญาณที่มั่นคง",
-    story:"คุณเป็นคนที่ยืนอยู่บนพื้นฐานของความเป็นจริง ปรับตัวได้ และไม่จำเป็นต้องทำตัวโดดเด่นเพื่อพิสูจน์คุณค่าของตัวเอง ความแข็งแกร่งของคุณคือความสม่ำเสมอและการเป็นตัวของตัวเอง"
-},
+    Normal: {
+        name: "ปกติ",
+        icon: "⭐",
+        subtitle: "จิตวิญญาณที่มั่นคง",
+        story:
+            "คุณเป็นคนที่ไม่จำเป็นต้องโดดเด่นที่สุดในห้อง แต่เมื่อทุกอย่างเริ่มวุ่นวาย คุณกลับเป็นหนึ่งในคนที่ยังยืนอยู่ได้ คุณปรับตัวเข้ากับสถานการณ์ได้ดี และรู้ว่าความแข็งแกร่งไม่ได้หมายถึงการต้องชนะทุกครั้ง",
+        rarity: "ทั่วไป"
+    },
 
-Fire: {
-    name:"ไฟ",
-    icon:"🔥",
-    subtitle:"จิตวิญญาณแห่งเปลวเพลิง",
-    story:"คุณมีพลังผลักดันที่ชัดเจน เมื่อมีสิ่งที่เชื่อหรือเป้าหมายที่ต้องการ คุณพร้อมจะเดินหน้าอย่างเต็มที่ ความกระตือรือร้นของคุณสามารถจุดประกายให้คนรอบข้างได้"
-},
+    Fire: {
+        name: "ไฟ",
+        icon: "🔥",
+        subtitle: "จิตวิญญาณแห่งเปลวเพลิง",
+        story:
+            "หัวใจของคุณมีประกายที่ไม่ยอมดับง่าย ๆ เมื่อมีเป้าหมาย คุณพร้อมลุย แม้เส้นทางข้างหน้าจะเต็มไปด้วยอุปสรรค ความกล้าของคุณมักเป็นประกายแรกที่ทำให้คนอื่นกล้าก้าวตาม",
+        rarity: "ทั่วไป"
+    },
 
-Water: {
-    name:"น้ำ",
-    icon:"💧",
-    subtitle:"จิตวิญญาณที่ไหลลื่น",
-    story:"คุณรู้จักปรับตัวตามสถานการณ์และไม่ยึดติดกับเส้นทางเพียงเส้นเดียว คุณอาจดูสงบจากภายนอก แต่ภายในมีความสามารถในการรับมือกับการเปลี่ยนแปลงสูงมาก"
-},
+    Water: {
+        name: "น้ำ",
+        icon: "💧",
+        subtitle: "จิตวิญญาณที่ไหลลื่น",
+        story:
+            "คุณไม่ได้จำเป็นต้องชนกับทุกสิ่งตรง ๆ คุณรู้จักเปลี่ยนทิศทาง รอจังหวะ และหาทางที่เหมาะกับสถานการณ์ ความยืดหยุ่นของคุณทำให้ผ่านเรื่องที่ดูเหมือนเป็นไปไม่ได้มาได้เสมอ",
+        rarity: "ทั่วไป"
+    },
 
-Electric: {
-    name:"ไฟฟ้า",
-    icon:"⚡",
-    subtitle:"จิตวิญญาณแห่งประกาย",
-    story:"คุณเต็มไปด้วยความคิดและพลังที่เกิดขึ้นอย่างรวดเร็ว คุณชอบทดลองสิ่งใหม่และไม่กลัวการเปลี่ยนแปลง ประกายของคุณมักปรากฏขึ้นในช่วงเวลาที่คนอื่นคาดไม่ถึง"
-},
+    Electric: {
+        name: "ไฟฟ้า",
+        icon: "⚡",
+        subtitle: "จิตวิญญาณแห่งประกาย",
+        story:
+            "คุณเต็มไปด้วยพลังและความคิดที่วิ่งเร็วกว่าคนรอบข้าง คุณชอบความตื่นเต้น สิ่งใหม่ และช่วงเวลาที่ต้องตัดสินใจในเสี้ยววินาที สำหรับคุณ การผจญภัยที่ดีต้องมีอะไรให้ลุ้นเสมอ",
+        rarity: "ทั่วไป"
+    },
 
-Grass: {
-    name:"หญ้า",
-    icon:"🌿",
-    subtitle:"จิตวิญญาณแห่งการเติบโต",
-    story:"คุณเชื่อในการเติบโตทีละเล็กทีละน้อย ให้ความสำคัญกับความสัมพันธ์และสิ่งที่ต้องใช้เวลา ความแข็งแกร่งของคุณไม่ได้เกิดขึ้นในชั่วข้ามคืน แต่มาจากรากที่มั่นคง"
-},
+    Grass: {
+        name: "หญ้า",
+        icon: "🌿",
+        subtitle: "จิตวิญญาณแห่งการเติบโต",
+        story:
+            "คุณเชื่อว่าหลายสิ่งต้องใช้เวลา คุณอาจไม่รีบที่สุด แต่เมื่อได้ลงมือแล้ว คุณจะค่อย ๆ แข็งแกร่งขึ้น คุณให้ความสำคัญกับเพื่อน การเติบโต และการสร้างสิ่งที่ยั่งยืน",
+        rarity: "ทั่วไป"
+    },
 
-Ice: {
-    name:"น้ำแข็ง",
-    icon:"❄️",
-    subtitle:"จิตวิญญาณแห่งความสงบนิ่ง",
-    story:"คุณสามารถรักษาความนิ่งได้แม้สถานการณ์รอบตัวจะวุ่นวาย คุณชอบคิดก่อนลงมือและมีโลกภายในที่ละเอียดอ่อน ความเงียบของคุณไม่ได้หมายถึงความอ่อนแอ"
-},
+    Ice: {
+        name: "น้ำแข็ง",
+        icon: "❄️",
+        subtitle: "จิตวิญญาณแห่งความสงบนิ่ง",
+        story:
+            "เมื่อคนอื่นเริ่มตื่นตระหนก คุณกลับพยายามหยุดและมองภาพทั้งหมดก่อนตัดสินใจ คุณรู้จักเก็บอารมณ์ไว้ข้างใน และเลือกจังหวะของตัวเอง ความนิ่งของคุณไม่ใช่ความเย็นชา แต่มันคือวิธีรักษาความชัดเจนท่ามกลางความวุ่นวาย",
+        rarity: "ทั่วไป"
+    },
 
-Fighting: {
-    name:"ต่อสู้",
-    icon:"✊",
-    subtitle:"จิตวิญญาณนักสู้",
-    story:"คุณเชื่อว่าหลายสิ่งต้องพิสูจน์ด้วยการลงมือทำ เมื่อเจออุปสรรค คุณมีแนวโน้มจะลุกขึ้นและลองอีกครั้ง ความมุ่งมั่นคืออาวุธที่สำคัญที่สุดของคุณ"
-},
+    Fighting: {
+        name: "ต่อสู้",
+        icon: "🥊",
+        subtitle: "จิตวิญญาณนักสู้",
+        story:
+            "คุณอาจล้มได้ แต่ไม่ชอบให้ใครเป็นคนบอกว่าคุณควรยอมแพ้ คุณเชื่อในการลงมือทำและพิสูจน์ตัวเองผ่านการกระทำ ความพ่ายแพ้สำหรับคุณเป็นเพียงอีกขั้นของการฝึกฝน",
+        rarity: "ทั่วไป"
+    },
 
-Poison: {
-    name:"พิษ",
-    icon:"☠️",
-    subtitle:"จิตวิญญาณนอกกรอบ",
-    story:"คุณไม่ได้จำเป็นต้องเดินตามเส้นทางที่คนอื่นวางไว้ คุณมองเห็นทางเลือกที่แปลกใหม่และอาจสนุกกับสิ่งที่คนอื่นคาดเดาไม่ได้ ความเป็นตัวของตัวเองคือเสน่ห์ของคุณ"
-},
+    Poison: {
+        name: "พิษ",
+        icon: "☠️",
+        subtitle: "จิตวิญญาณนอกกรอบ",
+        story:
+            "คุณไม่จำเป็นต้องเดินตามเส้นทางที่คนอื่นวางไว้ คุณมองเห็นวิธีแก้ปัญหาที่คนอื่นอาจมองข้าม และบางครั้งสิ่งที่ดูแปลกที่สุดกลับเป็นสิ่งที่ได้ผลที่สุด",
+        rarity: "ทั่วไป"
+    },
 
-Ground: {
-    name:"ดิน",
-    icon:"⛰️",
-    subtitle:"จิตวิญญาณที่หยั่งราก",
-    story:"คุณให้ความสำคัญกับพื้นฐาน ความมั่นคง และสิ่งที่จับต้องได้ เมื่อเลือกแล้วคุณสามารถค่อย ๆ เดินหน้าอย่างมั่นคงจนไปถึงจุดหมายได้"
-},
+    Ground: {
+        name: "ดิน",
+        icon: "🏜️",
+        subtitle: "จิตวิญญาณที่หยั่งราก",
+        story:
+            "คุณเป็นคนที่ให้ความสำคัญกับพื้นฐานและความมั่นคง ก่อนจะก้าวไปข้างหน้า คุณอยากรู้ว่าตัวเองยืนอยู่บนอะไร เมื่อเกิดปัญหา คุณมักเป็นคนที่คนอื่นหันมาพึ่งพา",
+        rarity: "ทั่วไป"
+    },
 
-Flying: {
-    name:"บิน",
-    icon:"🪽",
-    subtitle:"จิตวิญญาณเสรี",
-    story:"คุณให้คุณค่ากับอิสระและประสบการณ์ใหม่ คุณไม่ชอบถูกจำกัดอยู่ในกรอบเดิมนานเกินไป และมักมองหาเส้นทางที่ทำให้คุณได้เห็นโลกจากมุมที่กว้างขึ้น"
-},
+    Flying: {
+        name: "บิน",
+        icon: "🪽",
+        subtitle: "จิตวิญญาณเสรี",
+        story:
+            "คุณไม่ชอบให้กรอบมาจำกัดเส้นทางของตัวเอง คุณอยากเห็นโลกจากมุมที่กว้างขึ้น และพร้อมเปลี่ยนทิศทางเมื่อพบว่ามีเส้นทางที่น่าสนใจกว่า",
+        rarity: "ทั่วไป"
+    },
 
-Psychic: {
-    name:"พลังจิต",
-    icon:"🔮",
-    subtitle:"จิตวิญญาณแห่งการหยั่งรู้",
-    story:"คุณชอบมองให้ลึกกว่าสิ่งที่ปรากฏตรงหน้า คุณวิเคราะห์ เชื่อมโยง และพยายามเข้าใจเหตุผลเบื้องหลังสิ่งต่าง ๆ ก่อนตัดสินใจ"
-},
+    Psychic: {
+        name: "พลังจิต",
+        icon: "🔮",
+        subtitle: "จิตวิญญาณแห่งการหยั่งรู้",
+        story:
+            "คุณมักสังเกตสิ่งที่คนอื่นไม่ได้พูดออกมา คุณชอบคิด วิเคราะห์ และเชื่อว่าทุกเหตุการณ์มีบางอย่างซ่อนอยู่เบื้องหลัง ก่อนลงมือ คุณมักมองเกมให้ออกก่อนเสมอ",
+        rarity: "ทั่วไป"
+    },
 
-Bug: {
-    name:"แมลง",
-    icon:"🪲",
-    subtitle:"จิตวิญญาณนักปรับตัว",
-    story:"คุณเรียนรู้จากประสบการณ์และรู้จักปรับวิธีของตัวเองให้เหมาะกับสถานการณ์ แม้จุดเริ่มต้นจะเล็ก แต่คุณสามารถพัฒนาไปได้ไกลกว่าที่คนอื่นคาดคิด"
-},
+    Bug: {
+        name: "แมลง",
+        icon: "🐛",
+        subtitle: "จิตวิญญาณนักปรับตัว",
+        story:
+            "คุณไม่จำเป็นต้องแข็งแกร่งที่สุดเพื่อเอาตัวรอด คุณเรียนรู้จากสถานการณ์และเปลี่ยนตัวเองให้เข้ากับมันได้อย่างรวดเร็ว ยิ่งโลกเปลี่ยนเร็วเท่าไร คุณก็ยิ่งหาวิธีอยู่กับมันได้",
+        rarity: "ทั่วไป"
+    },
 
-Rock: {
-    name:"หิน",
-    icon:"🪨",
-    subtitle:"จิตวิญญาณที่ไม่หวั่นไหว",
-    story:"คุณมีความอดทนและพร้อมรับแรงกดดัน สิ่งต่าง ๆ อาจกระทบคุณได้ แต่ไม่ได้ทำให้คุณเปลี่ยนทิศทางง่าย ๆ คุณค่อย ๆ สร้างความแข็งแกร่งจากประสบการณ์"
-},
+    Rock: {
+        name: "หิน",
+        icon: "🪨",
+        subtitle: "จิตวิญญาณที่ไม่หวั่นไหว",
+        story:
+            "คุณมีความอดทนสูงและไม่เปลี่ยนใจง่าย ๆ เมื่อเชื่อในบางสิ่ง คุณพร้อมยืนหยัดกับมัน แม้จะต้องใช้เวลานานกว่าคนอื่น ความมั่นคงของคุณคือสิ่งที่ทำให้ทีมเดินหน้าต่อได้",
+        rarity: "ทั่วไป"
+    },
 
-Ghost: {
-    name:"ผี",
-    icon:"👻",
-    subtitle:"จิตวิญญาณลึกลับ",
-    story:"คุณมีโลกของตัวเองที่คนอื่นอาจมองไม่เห็น คุณสนใจสิ่งที่ซ่อนอยู่เบื้องหลังและไม่ได้กลัวความไม่แน่นอนเสมอไป ความลึกลับคือส่วนหนึ่งของเสน่ห์คุณ"
-},
+    Ghost: {
+        name: "ผี",
+        icon: "👻",
+        subtitle: "จิตวิญญาณลึกลับ",
+        story:
+            "คุณสนใจสิ่งที่คนอื่นไม่กล้าเข้าใกล้ ความลึกลับไม่ได้ทำให้คุณถอยกลับ ตรงกันข้าม มันทำให้คุณอยากรู้มากกว่าเดิม คุณอาจไม่ได้พูดทุกอย่างที่คิด แต่โลกภายในของคุณเต็มไปด้วยเรื่องราว",
+        rarity: "ทั่วไป"
+    },
 
-Dragon: {
-    name:"มังกร",
-    icon:"🐉",
-    subtitle:"จิตวิญญาณแห่งมังกร",
-    story:"คุณมีแรงผลักดันที่จะก้าวข้ามขีดจำกัดของตัวเอง คุณไม่ได้ต้องการเพียงแค่ไปถึงจุดหมาย แต่ต้องการรู้ว่าตัวเองสามารถไปได้ไกลแค่ไหน ความทะเยอทะยานและการเติบโตเป็นส่วนสำคัญของคุณ"
-},
+    Dragon: {
+        name: "มังกร",
+        icon: "🐉",
+        subtitle: "จิตวิญญาณแห่งมังกร",
+        story:
+            "ภายในตัวคุณมีความต้องการที่จะก้าวข้ามขีดจำกัดอยู่เสมอ คุณไม่ได้มองเพียงว่าตอนนี้ตัวเองอยู่ตรงไหน แต่คิดถึงสิ่งที่ตัวเองสามารถกลายเป็นได้ในอนาคต",
+        rarity: "หายาก"
+    },
 
-Dark: {
-    name:"ความมืด",
-    icon:"🌑",
-    subtitle:"จิตวิญญาณเจ้าแผนการ",
-    story:"คุณมองสถานการณ์หลายชั้นและไม่จำเป็นต้องเปิดไพ่ทั้งหมดตั้งแต่แรก คุณรู้จักใช้จังหวะ ข้อมูล และความไม่คาดคิดให้เป็นประโยชน์"
-},
+    Dark: {
+        name: "ความมืด",
+        icon: "🌑",
+        subtitle: "จิตวิญญาณเจ้าแผนการ",
+        story:
+            "คุณไม่จำเป็นต้องเปิดไพ่ทุกใบให้คนอื่นเห็น คุณรู้จักเก็บข้อมูล รอจังหวะ และใช้สิ่งที่มีให้เกิดประโยชน์สูงสุด สำหรับคุณ การชนะไม่ได้มีแค่การใช้กำลัง",
+        rarity: "ทั่วไป"
+    },
 
-Steel: {
-    name:"เหล็ก",
-    icon:"⚙️",
-    subtitle:"จิตวิญญาณแห่งเหล็กกล้า",
-    story:"คุณให้คุณค่ากับวินัย ความรับผิดชอบ และความน่าเชื่อถือ เมื่อสถานการณ์หนักขึ้น คุณมักพยายามทำหน้าที่ของตัวเองให้ดีที่สุด ความแข็งแกร่งของคุณคือการไม่พังง่าย ๆ"
-},
+    Steel: {
+        name: "เหล็ก",
+        icon: "⚙️",
+        subtitle: "จิตวิญญาณแห่งเหล็กกล้า",
+        story:
+            "คุณเชื่อว่าความพร้อมสร้างความมั่นใจ คุณวางแผน เตรียมตัว และรับผิดชอบสิ่งที่อยู่ตรงหน้า แม้สถานการณ์จะหนักแค่ไหน คุณก็พยายามทำหน้าที่ของตัวเองให้ดีที่สุด",
+        rarity: "หายาก"
+    },
 
-Fairy: {
-    name:"แฟรี่",
-    icon:"✨",
-    subtitle:"จิตวิญญาณแห่งมนตรา",
-    story:"คุณไวต่อความรู้สึก ความสัมพันธ์ และรายละเอียดเล็ก ๆ ที่คนอื่นอาจมองข้าม คุณมีจินตนาการและสามารถสร้างความหมายให้กับสิ่งธรรมดา ๆ ได้ ความอ่อนโยนของคุณสามารถเป็นพลังที่แข็งแกร่งได้"
-}
-
+    Fairy: {
+        name: "แฟรี่",
+        icon: "✨",
+        subtitle: "จิตวิญญาณแห่งมนตรา",
+        story:
+            "คุณมองเห็นคุณค่าของสิ่งเล็ก ๆ ที่คนอื่นอาจมองข้าม ความสัมพันธ์ จินตนาการ และความรู้สึกของผู้คนมีความหมายกับคุณ คุณเชื่อว่าความอ่อนโยนเองก็สามารถเปลี่ยนสถานการณ์ได้",
+        rarity: "หายาก"
+    }
 };
 
 
 /* =========================================================
-   RARITY
+   RARITY MULTIPLIERS
 ========================================================= */
 
 const rarityMultiplier = {
+
+    Normal: 1,
+    Fire: 1,
+    Water: 1,
+    Electric: 1,
+    Grass: 1,
+    Ice: 1,
+    Fighting: 1,
+    Poison: 1,
+    Ground: 1,
+    Flying: 1,
+    Psychic: 1,
+    Bug: 1,
+    Rock: 1,
+    Ghost: 1,
+    Dark: 1,
+
+    // Rare types
     Dragon: 0.76,
     Steel: 0.78,
     Fairy: 0.74
 };
 
 
-/*
-    Fixed order is also used as the final tie breaker.
-    This means there will always be ONE result.
-*/
+/* =========================================================
+   FIXED ORDER
+   ใช้เฉพาะกรณีคะแนนทุกอย่างเท่ากันจริง ๆ
+========================================================= */
 
 const typeOrder = [
     "Normal",
@@ -779,7 +746,243 @@ const typeOrder = [
 
 
 /* =========================================================
-   GAME STATE
+   QUESTIONS
+
+   score:
+   main = +1
+   secondary = +0.5
+
+   หมายเหตุ:
+   คำตอบถูกกระจายให้ทุกธาตุมีโอกาสปรากฏ
+========================================================= */
+
+const questions = [
+
+    {
+        text: "🌙 คุณก้าวเข้าสู่ดันเจี้ยนครั้งแรก เส้นทางข้างหน้าถูกหมอกปกคลุม คุณจะทำอย่างไร?",
+        answers: [
+            { text: "🔥 เดินต่อทันที ยิ่งมืดยิ่งน่าตื่นเต้น", main: "Fire", secondary: "Fighting" },
+            { text: "🔮 หยุดก่อน แล้วสังเกตร่องรอยรอบตัว", main: "Psychic", secondary: "Ice" },
+            { text: "🌿 สำรวจพื้นที่ใกล้ ๆ เพื่อหาทางที่ปลอดภัย", main: "Grass", secondary: "Ground" },
+            { text: "🪽 ลองหาจุดสูงเพื่อมองเส้นทางจากด้านบน", main: "Flying", secondary: "Electric" },
+            { text: "👻 เดินเข้าไปในหมอกเลย บางทีอาจมีอะไรซ่อนอยู่", main: "Ghost", secondary: "Dark" }
+        ]
+    },
+
+    {
+        text: "💥 เพื่อนร่วมทีมพลาดท่าจนทำให้ภารกิจเกือบล้ม คุณจะ...",
+        answers: [
+            { text: "💧 ปลอบเขาก่อน แล้วค่อยคิดว่าจะทำอย่างไรต่อ", main: "Water", secondary: "Fairy" },
+            { text: "🥊 บอกให้ลุกขึ้น แล้วลองใหม่อีกครั้ง", main: "Fighting", secondary: "Fire" },
+            { text: "⚙️ ตรวจสอบว่าอะไรผิดพลาดและวางแผนใหม่", main: "Steel", secondary: "Ground" },
+            { text: "☠️ หาวิธีแก้ปัญหาแบบที่ไม่มีใครคิดถึง", main: "Poison", secondary: "Dark" },
+            { text: "⭐ บอกทุกคนว่าไม่เป็นไร แล้วค่อย ๆ แก้สถานการณ์", main: "Normal", secondary: "Grass" }
+        ]
+    },
+
+    {
+        text: "🎁 คุณพบหีบสมบัติลึกลับกลางทาง แต่ไม่มีใครรู้ว่ามันเปิดอย่างไร...",
+        answers: [
+            { text: "🔮 ตรวจดูสัญลักษณ์และกลไกอย่างละเอียด", main: "Psychic", secondary: "Steel" },
+            { text: "⚡ ลองแตะดูเลย บางทีอาจเป็นกลไกไฟฟ้า", main: "Electric", secondary: "Bug" },
+            { text: "✨ รู้สึกว่ามีบางอย่างแปลก ๆ อยู่ในหีบ จึงฟังสัญชาตญาณตัวเอง", main: "Fairy", secondary: "Ghost" },
+            { text: "🪨 ถ้ามันเปิดไม่ได้ ก็ลองใช้แรงเปิดดู", main: "Rock", secondary: "Fighting" },
+            { text: "🐉 อาจเป็นของโบราณที่มีความสำคัญ ลองค้นคว้าก่อน", main: "Dragon", secondary: "Psychic" }
+        ]
+    },
+
+    {
+        text: "🔥 ตอนกลางคืน ทุกคนกำลังพักรอบกองไฟ คุณมักเป็นคนแบบไหน?",
+        answers: [
+            { text: "🗣️ ชวนทุกคนคุยและทำให้บรรยากาศสนุก", main: "Fire", secondary: "Normal" },
+            { text: "🌑 นั่งเงียบ ๆ ฟังคนอื่นพูดมากกว่า", main: "Dark", secondary: "Ghost" },
+            { text: "❄️ นั่งมองเปลวไฟและคิดถึงเรื่องต่าง ๆ", main: "Ice", secondary: "Psychic" },
+            { text: "🌿 คอยดูว่าทุกคนมีอาหารและน้ำพอไหม", main: "Grass", secondary: "Water" },
+            { text: "⚡ อยากรีบออกเดินทางต่อ เพราะคืนนี้ยังไปได้อีกไกล", main: "Electric", secondary: "Flying" }
+        ]
+    },
+
+    {
+        text: "👹 บอสตัวใหญ่ขวางทางออกจากดันเจี้ยน คุณจะเลือกวิธีไหน?",
+        answers: [
+            { text: "🥊 สู้ตรง ๆ และดูว่าใครจะยืนได้นานกว่า", main: "Fighting", secondary: "Rock" },
+            { text: "🔮 สังเกตแพตเทิร์นการโจมตีแล้วหาจังหวะสวน", main: "Psychic", secondary: "Ice" },
+            { text: "☠️ ใช้สถานะผิดปกติหรือวิธีที่บอสคาดไม่ถึง", main: "Poison", secondary: "Dark" },
+            { text: "🌊 ใช้สภาพแวดล้อมรอบตัวให้เป็นประโยชน์", main: "Water", secondary: "Ground" },
+            { text: "🐉 พุ่งเข้าไปเผชิญหน้ากับมันแบบไม่ถอย", main: "Dragon", secondary: "Fire" }
+        ]
+    },
+
+    {
+        text: "🌧️ ระหว่างทางสภาพอากาศเปลี่ยนอย่างรวดเร็ว คุณจะทำอะไร?",
+        answers: [
+            { text: "🏜️ หาที่กำบังที่มั่นคงก่อน", main: "Ground", secondary: "Rock" },
+            { text: "🪽 เปลี่ยนเส้นทางทันทีแล้วเดินทางต่อ", main: "Flying", secondary: "Water" },
+            { text: "❄️ หยุดพัก รอให้สถานการณ์ดีขึ้นก่อน", main: "Ice", secondary: "Normal" },
+            { text: "⚡ ยิ่งพายุแรงยิ่งรู้สึกตื่นเต้น", main: "Electric", secondary: "Fire" },
+            { text: "🐛 ปรับอุปกรณ์และวิธีเดินทางให้เข้ากับสภาพอากาศ", main: "Bug", secondary: "Steel" }
+        ]
+    },
+
+    {
+        text: "🧑‍🤝‍🧑 Pokémon ปริศนาตัวหนึ่งมาขอความช่วยเหลือ แต่เรื่องราวของเขาฟังดูน่าสงสัย...",
+        answers: [
+            { text: "✨ เชื่อในความรู้สึกของตัวเองและรับฟังเขาก่อน", main: "Fairy", secondary: "Water" },
+            { text: "🔮 ถามรายละเอียดเพื่อดูว่ามีอะไรไม่ตรงกันหรือไม่", main: "Psychic", secondary: "Dark" },
+            { text: "⭐ ช่วยก่อน เรื่องอื่นค่อยว่ากันทีหลัง", main: "Normal", secondary: "Grass" },
+            { text: "☠️ ระวังตัวไว้ก่อน อาจมีอะไรซ่อนอยู่", main: "Poison", secondary: "Ghost" },
+            { text: "⚙️ ขอข้อมูลให้ครบก่อนตัดสินใจรับภารกิจ", main: "Steel", secondary: "Ground" }
+        ]
+    },
+
+    {
+        text: "🗺️ คุณพบแผนที่เก่าที่มีพื้นที่หนึ่งถูกขีดทับไว้ คุณอยาก...",
+        answers: [
+            { text: "👻 ไปดูด้วยตัวเองทันที เพราะมันต้องมีเหตุผลที่ถูกปิดไว้", main: "Ghost", secondary: "Dark" },
+            { text: "🐉 เชื่อว่าที่นั่นอาจซ่อนเรื่องราวสำคัญของโลก", main: "Dragon", secondary: "Flying" },
+            { text: "🌿 ค่อย ๆ สำรวจจากพื้นที่รอบนอกก่อน", main: "Grass", secondary: "Ground" },
+            { text: "⚡ ไปทันที ก่อนที่โอกาสจะหายไป", main: "Electric", secondary: "Flying" },
+            { text: "🪨 เตรียมเสบียงและอุปกรณ์ให้พร้อมก่อนออกเดินทาง", main: "Rock", secondary: "Steel" }
+        ]
+    },
+
+    {
+        text: "🏛️ ในซากปรักหักพัง คุณพบรูปปั้นโบราณที่ไม่มีใครรู้จัก คุณจะ...",
+        answers: [
+            { text: "🔮 พยายามถอดความหมายของสัญลักษณ์", main: "Psychic", secondary: "Ghost" },
+            { text: "🐉 คิดว่ามันอาจเกี่ยวข้องกับตำนานเก่าแก่", main: "Dragon", secondary: "Rock" },
+            { text: "✨ รู้สึกว่ารูปปั้นนี้มีบางอย่างพิเศษ", main: "Fairy", secondary: "Psychic" },
+            { text: "⚙️ ตรวจดูว่ามันมีกลไกหรือช่องลับหรือไม่", main: "Steel", secondary: "Electric" },
+            { text: "☠️ แตะมันดูเลย ถ้ามีอะไรเกิดขึ้นค่อยรับมือ", main: "Poison", secondary: "Ghost" }
+        ]
+    },
+
+    {
+        text: "👑 ทีมของคุณต้องเลือกผู้นำ คุณคิดว่าผู้นำควรเป็นแบบไหน?",
+        answers: [
+            { text: "⚙️ คนที่รับผิดชอบและรักษาคำพูด", main: "Steel", secondary: "Rock" },
+            { text: "🔥 คนที่กล้าตัดสินใจในเวลาคับขัน", main: "Fire", secondary: "Fighting" },
+            { text: "💧 คนที่ฟังทุกคนและหาทางประนีประนอม", main: "Water", secondary: "Fairy" },
+            { text: "🔮 คนที่มองเห็นภาพรวมและวางแผนเก่ง", main: "Psychic", secondary: "Ground" },
+            { text: "🪽 คนที่พาทีมไปข้างหน้าและไม่กลัวสิ่งใหม่", main: "Flying", secondary: "Electric" }
+        ]
+    },
+
+    {
+        text: "🛤️ คุณพบสองเส้นทาง: ทางหนึ่งปลอดภัย แต่อ้อมมาก อีกทางเป็นทางลัดที่ไม่มีใครรู้จัก...",
+        answers: [
+            { text: "🛡️ เลือกทางปลอดภัย เพราะเตรียมตัวมาดีแล้ว", main: "Steel", secondary: "Ground" },
+            { text: "⚡ เลือกทางลัด โอกาสแบบนี้ไม่ได้มีบ่อย", main: "Electric", secondary: "Flying" },
+            { text: "👻 เลือกทางลึกลับ เพราะอยากรู้ว่ามันนำไปไหน", main: "Ghost", secondary: "Dark" },
+            { text: "❄️ ประเมินทั้งสองทางก่อน แล้วค่อยตัดสินใจ", main: "Ice", secondary: "Psychic" },
+            { text: "🥊 ไปทางลัด ถ้ามีปัญหาก็ค่อยฝ่ามันไป", main: "Fighting", secondary: "Rock" }
+        ]
+    },
+
+    {
+        text: "🌀 ประตูมิติปรากฏขึ้นตรงหน้า และไม่มีใครรู้ว่ามันจะพาไปที่ไหน...",
+        answers: [
+            { text: "🌑 เข้าไปเลย เพราะสิ่งที่ไม่รู้จักนี่แหละน่าสนใจ", main: "Dark", secondary: "Ghost" },
+            { text: "🔮 ศึกษาประตูก่อนว่ามันทำงานอย่างไร", main: "Psychic", secondary: "Electric" },
+            { text: "🐉 ถ้านี่คือโอกาสไปยังโลกใหม่ ฉันไม่อยากพลาด", main: "Dragon", secondary: "Flying" },
+            { text: "🌊 เตรียมทางกลับไว้ก่อน แล้วค่อยเข้าไป", main: "Water", secondary: "Ground" },
+            { text: "✨ รู้สึกว่าประตูนี้กำลังเรียกหาใครบางคน", main: "Fairy", secondary: "Ghost" }
+        ]
+    },
+
+    {
+        text: "💔 ภารกิจครั้งสำคัญล้มเหลว ทั้งทีมกลับมามือเปล่า คุณจะคิดอย่างไร?",
+        answers: [
+            { text: "🥊 ครั้งหน้าจะทำให้สำเร็จ ไม่ว่าจะต้องฝึกแค่ไหน", main: "Fighting", secondary: "Fire" },
+            { text: "🔮 วิเคราะห์ทุกจุดผิดพลาดเพื่อไม่ให้เกิดซ้ำ", main: "Psychic", secondary: "Steel" },
+            { text: "🌿 ถือว่ามันเป็นประสบการณ์ที่ทำให้เราเก่งขึ้น", main: "Grass", secondary: "Bug" },
+            { text: "❄️ ยอมรับความจริงก่อน แล้วค่อยเริ่มใหม่อย่างมีสติ", main: "Ice", secondary: "Water" },
+            { text: "🐉 ความล้มเหลวครั้งเดียวไม่ได้กำหนดว่าเราจะเป็นอะไร", main: "Dragon", secondary: "Rock" }
+        ]
+    },
+
+    {
+        text: "🎒 หลังภารกิจ คุณได้รับสิทธิ์เลือกของรางวัลได้เพียงหนึ่งชิ้น คุณจะเลือก...",
+        answers: [
+            { text: "⚔️ อาวุธที่ทำให้ต่อสู้ได้เก่งขึ้น", main: "Fighting", secondary: "Fire" },
+            { text: "🧭 ไอเทมที่ช่วยเปิดพื้นที่ใหม่บนแผนที่", main: "Flying", secondary: "Ghost" },
+            { text: "🧪 ไอเทมลึกลับที่ไม่รู้ว่าทำอะไรได้", main: "Poison", secondary: "Psychic" },
+            { text: "💚 ไอเทมที่ช่วยฟื้นฟูเพื่อนร่วมทีม", main: "Grass", secondary: "Fairy" },
+            { text: "⚙️ อุปกรณ์ที่ช่วยเตรียมตัวสำหรับภารกิจในอนาคต", main: "Steel", secondary: "Ground" }
+        ]
+    },
+
+    {
+        text: "😤 เพื่อนร่วมทีมสองคนทะเลาะกันจนไม่ยอมคุยกัน คุณจะ...",
+        answers: [
+            { text: "💧 คุยกับทั้งสองฝ่ายและพยายามหาจุดตรงกลาง", main: "Water", secondary: "Fairy" },
+            { text: "🥊 บอกตรง ๆ ว่าทั้งคู่ควรหยุดแล้วกลับมาทำงาน", main: "Fighting", secondary: "Normal" },
+            { text: "🔮 ฟังทั้งสองฝ่ายก่อนเพื่อเข้าใจต้นเหตุ", main: "Psychic", secondary: "Ice" },
+            { text: "✨ ทำบางอย่างให้ทั้งคู่กลับมาหัวเราะด้วยกัน", main: "Fairy", secondary: "Grass" },
+            { text: "🌑 ปล่อยให้ทั้งคู่สงบลงเอง แล้วค่อยคุยทีหลัง", main: "Dark", secondary: "Ghost" }
+        ]
+    },
+
+    {
+        text: "🔐 คุณค้นพบห้องลับที่ไม่มีอยู่บนแผนที่ สิ่งแรกที่คุณทำคือ...",
+        answers: [
+            { text: "👻 เดินเข้าไปดูว่าข้างในมีอะไร", main: "Ghost", secondary: "Dark" },
+            { text: "🔮 มองหากับดักก่อนเข้าไป", main: "Psychic", secondary: "Ice" },
+            { text: "⚡ รีบสำรวจ เพราะอาจมีเวลาไม่มาก", main: "Electric", secondary: "Bug" },
+            { text: "🏜️ ตรวจโครงสร้างรอบห้องว่าปลอดภัยหรือไม่", main: "Ground", secondary: "Rock" },
+            { text: "✨ มองหาสิ่งของหรือสัญลักษณ์ที่ดูผิดปกติ", main: "Fairy", secondary: "Ghost" }
+        ]
+    },
+
+    {
+        text: "⏳ คุณเหลือเวลาเพียงไม่กี่นาทีก่อนดันเจี้ยนจะถล่ม คุณจะ...",
+        answers: [
+            { text: "⚡ วิ่งเต็มที่ ไม่เสียเวลาคิดมาก", main: "Electric", secondary: "Flying" },
+            { text: "❄️ ตั้งสติแล้วเลือกเส้นทางที่มีโอกาสรอดสูงสุด", main: "Ice", secondary: "Psychic" },
+            { text: "🥊 พาเพื่อนออกไปก่อน แล้วค่อยคิดถึงตัวเอง", main: "Fighting", secondary: "Water" },
+            { text: "⚙️ ทำตามแผนฉุกเฉินที่เตรียมไว้", main: "Steel", secondary: "Ground" },
+            { text: "🌿 มองหาทางธรรมชาติ เช่น ถ้ำหรือช่องระบายอากาศ", main: "Grass", secondary: "Bug" }
+        ]
+    },
+
+    {
+        text: "🐉 มีข่าวลือว่า Pokémon ในตำนานกำลังตื่นขึ้น คุณรู้สึกอย่างไร?",
+        answers: [
+            { text: "🐉 อยากเห็นด้วยตาตัวเอง แม้มันจะอันตราย", main: "Dragon", secondary: "Fire" },
+            { text: "🔮 อยากรู้ว่าตำนานนั้นมีความจริงแค่ไหน", main: "Psychic", secondary: "Ghost" },
+            { text: "✨ หวังว่ามันจะเป็นจุดเริ่มต้นของสิ่งมหัศจรรย์", main: "Fairy", secondary: "Grass" },
+            { text: "🪨 ควรเตรียมรับมือไว้ก่อน เพราะไม่มีใครรู้ว่าจะเกิดอะไรขึ้น", main: "Rock", secondary: "Steel" },
+            { text: "🌑 ข่าวลืออาจมีเบื้องหลังมากกว่าที่คนพูดกัน", main: "Dark", secondary: "Poison" }
+        ]
+    },
+
+    {
+        text: "🏰 คุณมาถึงดันเจี้ยนสุดท้าย สิ่งที่รออยู่ข้างหน้าคือสิ่งที่คุณตามหามาตลอด...",
+        answers: [
+            { text: "🔥 พุ่งเข้าไปเลย ถึงเวลาปิดฉากการเดินทางแล้ว", main: "Fire", secondary: "Fighting" },
+            { text: "❄️ หยุดมองรอบสุดท้าย เพราะไม่อยากพลาดรายละเอียดสำคัญ", main: "Ice", secondary: "Psychic" },
+            { text: "🪽 มองไปข้างหน้าและรู้สึกว่าทุกอย่างเพิ่งเริ่มต้น", main: "Flying", secondary: "Dragon" },
+            { text: "🌊 อยากให้ทุกคนในทีมเข้าไปพร้อมกัน", main: "Water", secondary: "Fairy" },
+            { text: "⚙️ ตรวจสอบอุปกรณ์ให้พร้อมก่อนเปิดประตู", main: "Steel", secondary: "Rock" }
+        ]
+    },
+
+    {
+        text: "🌅 หลังจากการผจญภัยจบลง สิ่งไหนทำให้คุณรู้สึกว่า 'มันคุ้มค่า' ที่สุด?",
+        answers: [
+            { text: "👥 การได้เห็นเพื่อนร่วมทีมเติบโตไปด้วยกัน", main: "Grass", secondary: "Fairy" },
+            { text: "🏆 การพิสูจน์ว่าตัวเองสามารถเอาชนะสิ่งที่เคยกลัวได้", main: "Fighting", secondary: "Dragon" },
+            { text: "🗺️ การได้เห็นสถานที่ที่ไม่เคยมีใครไปถึง", main: "Flying", secondary: "Ghost" },
+            { text: "💡 การได้เรียนรู้ความจริงที่ซ่อนอยู่ระหว่างทาง", main: "Psychic", secondary: "Ice" },
+            { text: "⭐ การได้กลับบ้านพร้อมเรื่องราวดี ๆ ที่จะไม่มีวันลืม", main: "Normal", secondary: "Water" }
+        ]
+    }
+
+];
+
+
+/* =========================================================
+   STATE
 ========================================================= */
 
 let currentQuestion = 0;
@@ -789,35 +992,14 @@ let rawScores = {};
 let coverage = {};
 let lastHit = {};
 
-let answered = false;
+let selectedAnswers = [];
 
 
 /* =========================================================
-   ELEMENTS
+   RESET SCORES
 ========================================================= */
 
-const startScreen = document.getElementById("startScreen");
-const quizScreen = document.getElementById("quizScreen");
-const resultScreen = document.getElementById("resultScreen");
-
-const startButton = document.getElementById("startButton");
-const retryButton = document.getElementById("retryButton");
-const shareButton = document.getElementById("shareButton");
-
-const counter = document.getElementById("counter");
-const progressBar = document.getElementById("progressBar");
-
-const questionText = document.getElementById("questionText");
-const options = document.getElementById("options");
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-function resetGame() {
-
-    currentQuestion = 0;
+function resetScores() {
 
     scores = {};
     rawScores = {};
@@ -825,29 +1007,25 @@ function resetGame() {
     lastHit = {};
 
     typeOrder.forEach(type => {
-
         scores[type] = 0;
         rawScores[type] = 0;
         coverage[type] = 0;
         lastHit[type] = -1;
-
     });
-
-    answered = false;
 }
 
 
 /* =========================================================
-   SCREEN
+   SCREEN CONTROL
 ========================================================= */
 
-function showScreen(screen) {
+function showScreen(id) {
 
-    startScreen.classList.add("hidden");
-    quizScreen.classList.add("hidden");
-    resultScreen.classList.add("hidden");
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
 
-    screen.classList.remove("hidden");
+    document.getElementById(id).classList.add("active");
 
     window.scrollTo({
         top: 0,
@@ -857,54 +1035,73 @@ function showScreen(screen) {
 
 
 /* =========================================================
+   START QUIZ
+========================================================= */
+
+function startQuiz() {
+
+    currentQuestion = 0;
+    selectedAnswers = [];
+
+    resetScores();
+
+    showScreen("quizScreen");
+
+    renderQuestion();
+}
+
+
+/* =========================================================
    RENDER QUESTION
 ========================================================= */
 
 function renderQuestion() {
 
-    answered = false;
+    const q = questions[currentQuestion];
 
-    const question = questions[currentQuestion];
+    const questionNo = currentQuestion + 1;
+    const percent = Math.round(
+        (questionNo / questions.length) * 100
+    );
 
-    counter.textContent =
-        `คำถาม ${currentQuestion + 1} / ${questions.length}`;
+    document.getElementById("progressText").textContent =
+        `${questionNo} / ${questions.length}`;
 
-    progressBar.style.width =
-        `${(currentQuestion / questions.length) * 100}%`;
+    document.getElementById("progressPercent").textContent =
+        `${percent}%`;
 
-    questionText.textContent = question.q;
+    document.getElementById("progressBar").style.width =
+        `${percent}%`;
 
-    options.innerHTML = "";
+    document.getElementById("questionNumber").textContent =
+        `เหตุการณ์ที่ ${questionNo}`;
 
-    const letters = ["A", "B", "C", "D"];
+    document.getElementById("questionText").textContent =
+        q.text;
 
-    question.a.forEach((answer, index) => {
+    const answersContainer =
+        document.getElementById("answers");
+
+    answersContainer.innerHTML = "";
+
+    const letters = ["A", "B", "C", "D", "E"];
+
+    q.answers.forEach((answer, index) => {
 
         const button = document.createElement("button");
 
-        button.type = "button";
-        button.className = "option";
+        button.className = "answer-btn";
 
-        const letter = document.createElement("span");
+        button.innerHTML = `
+            <span class="answer-letter">
+                ${letters[index]}
+            </span>
+            <span>${answer.text}</span>
+        `;
 
-        letter.className = "letter";
-        letter.textContent = letters[index];
+        button.onclick = () => chooseAnswer(answer);
 
-        const text = document.createElement("span");
-
-        text.textContent = answer[0];
-
-        button.appendChild(letter);
-        button.appendChild(text);
-
-        button.addEventListener("click", () => {
-
-            chooseAnswer(answer);
-
-        });
-
-        options.appendChild(button);
-
+        answersContainer.appendChild(button);
     });
 }
 
@@ -915,99 +1112,81 @@ function renderQuestion() {
 
 function chooseAnswer(answer) {
 
-    if (answered) {
-        return;
-    }
+    const questionIndex = currentQuestion;
 
-    answered = true;
+    selectedAnswers.push(answer);
 
-    const type1 = answer[1];
-    const type2 = answer[2];
+    /*
+        Primary type:
+        +1 raw
+        +1 adjusted × rarity multiplier
 
-    [type1, type2].forEach(type => {
+        Secondary:
+        +0.5 raw
+        +0.5 adjusted × rarity multiplier
+    */
 
-        rawScores[type] += 1;
+    rawScores[answer.main] += 1;
+    scores[answer.main] +=
+        1 * rarityMultiplier[answer.main];
 
-        const multiplier =
-            rarityMultiplier[type] || 1;
+    coverage[answer.main]++;
+    lastHit[answer.main] = questionIndex;
 
-        scores[type] += multiplier;
 
-        coverage[type] += 1;
+    rawScores[answer.secondary] += 0.5;
+    scores[answer.secondary] +=
+        0.5 * rarityMultiplier[answer.secondary];
 
-        lastHit[type] = currentQuestion;
-
-    });
+    coverage[answer.secondary]++;
+    lastHit[answer.secondary] = questionIndex;
 
 
     currentQuestion++;
 
-
-    if (currentQuestion < questions.length) {
-
-        renderQuestion();
-
-    } else {
-
-        progressBar.style.width = "100%";
+    if (currentQuestion >= questions.length) {
 
         showResult();
 
-    }
+    } else {
 
+        renderQuestion();
+    }
 }
 
 
 /* =========================================================
-   DETERMINE WINNER
+   RANK TYPES
 ========================================================= */
 
 function rankTypes() {
 
     return [...typeOrder].sort((a, b) => {
 
-        /* 1. Adjusted score */
-        const scoreDifference =
-            scores[b] - scores[a];
-
-        if (Math.abs(scoreDifference) > 0.000001) {
-            return scoreDifference;
+        // 1. Adjusted score
+        if (scores[b] !== scores[a]) {
+            return scores[b] - scores[a];
         }
 
-
-        /* 2. Raw score */
-        const rawDifference =
-            rawScores[b] - rawScores[a];
-
-        if (rawDifference !== 0) {
-            return rawDifference;
+        // 2. Raw score
+        if (rawScores[b] !== rawScores[a]) {
+            return rawScores[b] - rawScores[a];
         }
 
-
-        /* 3. Number of questions contributing */
-        const coverageDifference =
-            coverage[b] - coverage[a];
-
-        if (coverageDifference !== 0) {
-            return coverageDifference;
+        // 3. Number of appearances
+        if (coverage[b] !== coverage[a]) {
+            return coverage[b] - coverage[a];
         }
 
-
-        /* 4. More recent hit */
-        const recentDifference =
-            lastHit[b] - lastHit[a];
-
-        if (recentDifference !== 0) {
-            return recentDifference;
+        // 4. Most recent appearance
+        if (lastHit[b] !== lastHit[a]) {
+            return lastHit[b] - lastHit[a];
         }
 
-
-        /* 5. Fixed deterministic order */
+        // 5. Fixed order
         return typeOrder.indexOf(a) -
                typeOrder.indexOf(b);
-
     });
-
 }
 
 
@@ -1017,163 +1196,129 @@ function rankTypes() {
 
 function showResult() {
 
-    const ranked = rankTypes();
+    const ranking = rankTypes();
 
-    const winner = ranked[0];
-    const second = ranked[1];
+    const winner = ranking[0];
 
-    const maxScore = scores[winner];
-
-    const gap =
-        Math.max(
-            0,
-            maxScore - scores[second]
-        );
-
+    const typeData = types[winner];
 
     /*
-       Affinity is presentation only.
-       It does not affect which type wins.
+        Calculate presentation affinity.
+
+        This number is NOT used to decide winner.
+        It is only a friendly display value.
     */
 
-    const baseScore = questions.length * 2;
+    const winnerScore = scores[winner];
 
-    const affinity = Math.round(
-        Math.min(
-            99,
-            Math.max(
-                50,
-                50 +
-                (maxScore / baseScore) * 42 +
-                gap * 5
-            )
-        )
+    const totalScore = typeOrder.reduce(
+        (sum, type) => sum + scores[type],
+        0
     );
 
+    let affinity = 0;
 
-    const isRare =
-        rarityMultiplier[winner] !== undefined;
+    if (totalScore > 0) {
 
+        affinity = Math.round(
+            (winnerScore / totalScore) * 180
+        );
+
+        affinity = Math.max(
+            70,
+            Math.min(97, affinity)
+        );
+    }
 
     document.getElementById("resultIcon").textContent =
-        types[winner].icon;
+        typeData.icon;
 
     document.getElementById("resultType").textContent =
-        `ธาตุ${types[winner].name}`;
+        `ธาตุ${typeData.name}`;
 
     document.getElementById("resultSubtitle").textContent =
-        types[winner].subtitle;
+        typeData.subtitle;
 
     document.getElementById("resultStory").textContent =
-        types[winner].story;
+        typeData.story;
 
     document.getElementById("affinity").textContent =
         `${affinity}%`;
 
     document.getElementById("rarity").textContent =
-        isRare ? "หายาก" : "ปกติ";
+        typeData.rarity;
 
-    document.getElementById("shareStatus").textContent = "";
+    showScreen("resultScreen");
 
-    showScreen(resultScreen);
+    window.currentResult = {
+        key: winner,
+        name: typeData.name,
+        icon: typeData.icon,
+        affinity: affinity
+    };
 }
 
 
 /* =========================================================
-   START
+   RESTART
 ========================================================= */
 
-startButton.addEventListener("click", () => {
+function restartQuiz() {
 
-    resetGame();
-
-    showScreen(quizScreen);
-
-    renderQuestion();
-
-});
-
-
-/* =========================================================
-   RETRY
-========================================================= */
-
-retryButton.addEventListener("click", () => {
-
-    resetGame();
-
-    showScreen(quizScreen);
-
-    renderQuestion();
-
-});
+    startQuiz();
+}
 
 
 /* =========================================================
    SHARE
 ========================================================= */
 
-shareButton.addEventListener("click", async () => {
+async function shareResult() {
 
-    const result =
-        document.getElementById("resultType").textContent;
+    if (!window.currentResult) return;
 
-    const affinity =
-        document.getElementById("affinity").textContent;
+    const result = window.currentResult;
 
-    const text =
-        `ฉันได้ ${result} ในแบบทดสอบ "คุณมีจิตวิญญาณของธาตุอะไร?" ` +
-        `ความเข้ากันได้ ${affinity}`;
+    const shareText =
+`🔮 ผลแบบทดสอบจิตวิญญาณธาตุ
 
-    const status =
-        document.getElementById("shareStatus");
+${result.icon} ฉันได้ธาตุ${result.name}
 
+ความสอดคล้อง ${result.affinity}%
 
-    /*
-       Phones with Web Share API
-    */
+แล้วคุณล่ะ?
+ลองค้นหาธาตุของตัวเองดู!`;
 
-    if (navigator.share) {
+    try {
 
-        try {
+        if (navigator.share) {
 
             await navigator.share({
-                title: "คุณมีจิตวิญญาณของธาตุอะไร?",
-                text: text
+                title: "Spirit Type Quiz",
+                text: shareText
             });
 
-            status.textContent =
-                "แชร์ผลลัพธ์แล้ว ✨";
+        } else {
 
-            return;
+            await navigator.clipboard.writeText(
+                shareText
+            );
 
-        } catch (error) {
-
-            if (error.name === "AbortError") {
-                return;
-            }
-
+            alert("คัดลอกผลลัพธ์ไว้ใน Clipboard แล้ว! 📋");
         }
 
+    } catch (error) {
+
+        console.log("Share cancelled.");
     }
-
-
-    /*
-       Fallback for browsers without Web Share.
-    */
-
-    status.textContent =
-        text +
-        " — สามารถแคปหน้าจอแล้วส่งให้เพื่อนได้เลย ✨";
-
-});
+}
 
 
 /* =========================================================
-   INITIAL STATE
+   INITIALIZE
 ========================================================= */
 
-resetGame();
+resetScores();
 
 </script>
 
